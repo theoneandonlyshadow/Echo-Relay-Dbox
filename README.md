@@ -21,3 +21,8 @@
 <center><h1>Languages & Frameworks</h1></center>
 
 - MERN
+- Socket.io
+
+<center><h1>Storage DB</h1></center>
+
+- Dropbox
