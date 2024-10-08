@@ -11,10 +11,7 @@ const port = 3000;
 const app = express();
 const upload = multer({ dest: 'tempdir/' });
 
-mongoose.connect('mongodb://127.0.0.1:27017/your_database_name', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(() => {
+mongoose.connect('mongodb://127.0.0.1:27017/Storage?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.1').then(() => {
   console.log('Connected to MongoDB');
 }).catch(err => {
   console.error('MongoDB connection error:', err);
@@ -70,7 +67,7 @@ const File = mongoose.model('File', fileSchema);
 
       tempLinks[uniqueId] = tempLink;
 
-      const expirationPeriod = 24 * 60 * 60 * 1000;
+      const expirationPeriod = 7 * 24 * 60 * 60 * 1000;
       const expireTime = new Date(Date.now() + expirationPeriod);
 
       const timeRemaining = expireTime - Date.now();
