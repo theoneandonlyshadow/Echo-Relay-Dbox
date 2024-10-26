@@ -5,13 +5,14 @@ const path = require('path');
 const { Dropbox } = require('dropbox');
 const crypto = require('crypto');
 const mongoose = require('mongoose');
+const { appendLogsSuccess, appendLogsFailure } = require('./logs.js');
 require('dotenv').config();
 
 const port = 3000;
 const app = express();
 const upload = multer({ dest: 'tempdir/' });
 
-mongoose.connect('mongodb://127.0.0.1:27017/Storage?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.1').then(() => {
+mongoose.connect('mongodb+srv://jay:MongoDBDB@echorelay.b3x3z.mongodb.net/?retryWrites=true&w=majority&appName=echoRelay').then(() => {
   console.log('Connected to MongoDB');
 }).catch(err => {
   console.error('MongoDB connection error:', err);
@@ -85,12 +86,14 @@ const File = mongoose.model('File', fileSchema);
 
       await newFile.save();
 
+      appendLogsSuccess(fileName, tempLink, uniqueId);
       res.status(200).send(`
         <h2>File Uploaded Successfully!</h2>
         <p>Download link: <a href="${customLink}" target="_blank">${customLink}</a></p>
       `);
 
     } catch (error) {
+      appendLogsFailure(fileName, tempLink, uniqueId);
       console.error('Error uploading file:', error);
       res.status(500).send('Error occurred while uploading the file.');
     }
@@ -112,3 +115,5 @@ const File = mongoose.model('File', fileSchema);
     console.log(`Dropbox app started on http://localhost:${port}`);
   });
 })();
+
+module.exports = {}
