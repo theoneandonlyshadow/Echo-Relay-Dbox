@@ -6,15 +6,16 @@ const { Dropbox } = require('dropbox');
 const crypto = require('crypto');
 const mongoose = require('mongoose');
 const { appendLogsSuccess, appendLogsFailure } = require('./logs.js');
-require('dotenv').config();
+require('dotenv').config(); // Load environment variables from .env file
 
 const port = 3000;
-const app = express();
+const app = express(); // Create an Express application
 
+// Set EJS as the templating engine and define the views directory
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-const maxUploadLimit = 250 * 1024 * 1024;
+const maxUploadLimit = 250 * 1024 * 1024; // Define the maximum file upload limit (250 MB)
 const upload = multer({
   dest: 'tempdir/',
   limits: { fileSize: maxUploadLimit }
@@ -28,6 +29,7 @@ mongoose.connect(process.env.MONGO_URI)
     console.error('MongoDB connection error:', err);
   });
 
+// Define the file schema for MongoDB
 const fileSchema = new mongoose.Schema({
   file_name: { type: String, required: true },
   download_link: { type: String, required: true },
@@ -40,24 +42,27 @@ const fileSchema = new mongoose.Schema({
 const File = mongoose.model('File', fileSchema);
 
 (async () => {
-  const fetch = (await import('node-fetch')).default;
+  const fetch = (await import('node-fetch')).default; // Dynamically import node-fetch for making requests
 
-  const dbx = new Dropbox({
-    accessToken: process.env.DBOX,
+  // Initialize Dropbox client
+  const dbx = new Dropbox({ 
+    accessToken: process.env.DBOX, 
     fetch: fetch
   });
 
-  const tempLinks = {};
+  const tempLinks = {};   // Object to store temporary links with unique IDs
 
+  // Route for the home page
   app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
   });
 
+  // Route for handling file uploads
   app.post('/upload', (req, res, next) => {
-    upload.single('file')(req, res, function (err) {
-      if (err instanceof multer.MulterError && err.code === 'LIMIT_FILE_SIZE') {
+    upload.single('file')(req, res, function (error) {
+      if (error instanceof multer.MulterError && error.code === 'LIMIT_FILE_SIZE') {
         return res.status(413).render('error', { errorReason: 'File size exceeds the 250 MB limit.' });
-      } else if (err) {
+      } else if (error) {
         return res.status(500).render('error', { errorReason: 'An error occurred while uploading the file.' });
       }
       next();
@@ -88,13 +93,12 @@ const File = mongoose.model('File', fileSchema);
       uniqueId = crypto.randomBytes(8).toString('hex');
 
       const expireTime = new Date();
-      expireTime.setDate(expireTime.getDate() + 7);
-
-      const timeRemaining = expireTime - Date.now();
+      expireTime.setDate(expireTime.getDate() + 7); // Set the expiration time for the link to 7 days
 
       const domain = `${req.protocol}://${req.get('host')}`;
       const customLink = `${domain}/download/${uniqueId}`;
 
+      // Create a new File document and save it to the database
       const newFile = new File({
         file_name: fileName,
         download_link: customLink,
@@ -116,7 +120,8 @@ const File = mongoose.model('File', fileSchema);
       return res.status(500).render('error', { errorReason: 'An error occurred during the file upload.' });
     }
   });
-
+  
+  // Route for downloading files using a unique ID
   app.get('/download/:id', async (req, res) => {
     const uniqueId = req.params.id;
 
