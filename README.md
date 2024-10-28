@@ -12,6 +12,12 @@
 - the receiver enters the link or the code.
 - the receiver receives the file.
 
+<center><h1>My Contributions in this Project</h1></center>
+
+- Added MongoDB connection for file storage
+- Added Logs.js Controller for handling File Upload errors and Append logs into logs.txt
+- Replaced Static Webpage Redirection of error.html and success.html with Dynamic Webpage Redirection using EJS
+
 <center><h1>Files</h1></center>
 
 - index.html - static main page to input files
