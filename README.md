@@ -15,8 +15,13 @@
 <center><h1>My Contributions in this Project</h1></center>
 
 - Added MongoDB connection for file storage
-- Added Logs.js Controller for handling File Upload errors and Append logs into logs.txt
-- Replaced Static Webpage Redirection of error.html and success.html with Dynamic Webpage Redirection using EJS
+- Added a middleware to limit the Max File Upload Size to 250 mb
+- Modified the existing Schema to add a field called 'download_link'
+- Added Logs.js Controller for handling File Upload errors
+- Added functionality to Append logs into logs.txt in Logs.js
+- Replaced 'error.html' with 'views/error.ejs'
+- Replaced 'success.html' with 'views/success.ejs'
+- Replaced Static Webpage Redirection with Dynamic Webpage Redirection using EJS
 
 <center><h1>Files</h1></center>
 
@@ -52,7 +57,7 @@
 
 - '/' - This is the 'index.html' in action. 
 - '/upload' - This endpoint redirects 'error.ejs' or 'success.ejs' when there's error uploading the   file, the file size exceeds 250 mb or the file has successfully uploaded respectively.
-- '/download/:id - This endpoint redirects the user to a webpage where the stored file in the database is downloaded in the user's system.
+- '/download/:id - This endpoint redirects the user to a webpage where the stored file in the database is downloaded into the user's system.
 
 <center><h1>Installing Dependencies</h1></center>
 
