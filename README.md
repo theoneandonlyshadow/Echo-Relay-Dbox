@@ -1,38 +1,73 @@
-<center><h1>Plan so far</h1></center>
+<center><h1>Echo Relay</h1></center>
 
 - user enters the website.
 - background process checks for storage residue in all DBs.
 - user uploads file (drag and drop / click to open).
-- file limit: 200mb
+- file limit: 250 mb
 - background process compares file size and all DBs storage residue size.
 - file is stored in a DB with space.
 - the file is stored in the DB for 1 week max.
 - background process calls MongoDB to create ObjectID unique to a file, name of the file and timestamps.
-- a temporary link, QR code and a 7 digit code is displayed after successfully storing.
-- max life of the temp link, QR code and the code is 1 week.
+- a temporary link is displayed after successfully storing.
 - the receiver enters the link or the code.
 - the receiver receives the file.
-- end.
 
-<center><h1>Each file workin shi (for now)</h1></center>
+<center><h1>My Contributions in this Project</h1></center>
 
-- index.html - basic af input tag to test upload
-- dbox.js - main file for now to test dropbox transfer
-- tempdir - youre sending files, files need to be stores temporarily somewhere before transferring, hence why i keep sayin we need a server to communicate online. Dw these are hashes of the file, theyre in kilobytes.
-- server.js - nothin biggie yet. express backend will migrate there once i get all DB implementations.
-- success.html - if file upload is uploaded to dropbox, we get redirected to this page
-- error.html - opps of success.html
+- Added MongoDB connection for file storage
+- Added a middleware to limit the Max File Upload Size to 250 mb
+- Modified the existing Schema to add a field called 'download_link'
+- Added Logs.js Controller for handling File Upload errors
+- Added functionality to Append logs into logs.txt in Logs.js
+- Replaced 'error.html' with 'views/error.ejs'
+- Replaced 'success.html' with 'views/success.ejs'
+- Replaced Static Webpage Redirection with Dynamic Webpage Redirection using EJS
 
-<center><h1>Used DB</h1></center>
+<center><h1>Files</h1></center>
 
-- MongoDB - 512MB
+- index.html - static main page to input files
+- dbox.js - main file for dropbox transfer
+- tempdir - you're sending files and these files need to be stores temporarily somewhere before transferring. Don't worry these are hashes of the file, theyre in kilobytes.
+- views/success.ejs - if file upload is uploaded to dropbox, we get redirected to this page
+- views/error.ejs - opposite of success.html
+
+<center><h1>Used Database</h1></center>
+
+- MongoDB - 512MB (storage limit)
 
 <center><h1>Languages & Frameworks</h1></center>
 
 - MERN
-- Socket.io
+- EJS
 
-<center><h1>Storage DB</h1></center>
+<center><h1>Dependencies</h1></center>
+
+- Express
+- Multer
+- Dropbox
+- Mongoose
+- Crypto
+- dotenv (optional)
+
+<center><h1>Storage Database</h1></center>
 
 - Dropbox - 2GB
-- more on the wae
+
+<center><h1>API Endpoints</h1></center>
+
+- '/' - This is the 'index.html' in action. 
+- '/upload' - This endpoint redirects 'error.ejs' or 'success.ejs' when there's error uploading the   file, the file size exceeds 250 mb or the file has successfully uploaded respectively.
+- '/download/:id - This endpoint redirects the user to a webpage where the stored file in the database is downloaded into the user's system.
+
+<center><h1>Installing Dependencies</h1></center>
+
+- npm i express multer dropbox mongoose crypto
+
+<center><h1>Note</h1></center>
+
+- Replace process.env.MONGO_URI in <mongoose.connect(process.env.MONGO_URI)>  with your MongoDB connection string in the dbox.js file.
+- Replace process.env.DBOX in <const dbx = new Dropbox({accessToken: process.env.DBOX, fetch: fetch});>  with your Dropbox API Key.
+
+<center><h1>Running the program</h1></center>
+
+- node dbox.js
