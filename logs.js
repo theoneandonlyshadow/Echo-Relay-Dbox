@@ -2,10 +2,11 @@ const fs = require('fs');
 
 const time = new Date();
 
-async function appendLogsSuccess(fileName, dropboxLink, uniqueId) {
+async function appendLogsSuccess(fileName, dropboxLink, uniqueId, customLink) {
     const SuccessMsg = `                    ------------------------------------
                     file uploaded successfully at ${time}
                     file name: ${fileName}
+                    download link: ${customLink}
                     dropbox link: ${dropboxLink}
                     unique id: ${uniqueId}
                     ------------------------------------\n`;
