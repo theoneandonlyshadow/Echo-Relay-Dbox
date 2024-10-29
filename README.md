@@ -12,6 +12,16 @@
 - the receiver enters the link or the code.
 - the receiver receives the file.
 
+<center><h1><a href="https://github.com/theoneandonlyshadow">Madhav's</a> Contributions in this Project</h1></center>
+
+- Created dropbox developers account and API key
+- Created dbox.js (main file) to push and pull files from the website
+- Created a basic index.html to upload the file
+- Created a temporary folder to store the files there before fully uploading to dropbox
+- Created a basic success.html to show the user that the file has been uploaded to dropbox successfully
+- Created a basic error.html to show the user that the file had trouble uploading to the dropbox
+- Created temporary link in success.html to download the uploaded file
+
 <center><h1><a href="https://github.com/Tyler731137">Jayprakash's</a> Contributions in this Project</h1></center>
 
 - Added MongoDB connection for file storage
@@ -22,6 +32,7 @@
 - Replaced 'error.html' with 'views/error.ejs'
 - Replaced 'success.html' with 'views/success.ejs'
 - Replaced Static Webpage Redirection with Dynamic Webpage Redirection using EJS
+
 
 <center><h1>Files</h1></center>
 
