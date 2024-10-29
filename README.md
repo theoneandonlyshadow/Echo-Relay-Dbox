@@ -32,6 +32,7 @@
 - Replaced 'error.html' with 'views/error.ejs'
 - Replaced 'success.html' with 'views/success.ejs'
 - Replaced Static Webpage Redirection with Dynamic Webpage Redirection using EJS
+- Added maximum time limit of 1 week a file can stay in the DropBox before automatic deletion from DropBox and MongoDB record.
 
 
 <center><h1>Files</h1></center>
