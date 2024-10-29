@@ -1,4 +1,7 @@
 <center><h1>Echo Relay</h1></center>
+<hr>
+<h2>This project is just a basic implementation. Visit <a href="https://theoneandonlyshadow/echo-relay">Echo Relay</a> for newer and better implementation</h2>
+<hr>
 
 - user enters the website.
 - background process checks for storage residue in all DBs.
