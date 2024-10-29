@@ -12,7 +12,7 @@
 - the receiver enters the link or the code.
 - the receiver receives the file.
 
-<center><h1>My Contributions in this Project</h1></center>
+<center><h1><a href="https://github.com/Tyler731137">Jayprakash's</a> Contributions in this Project</h1></center>
 
 - Added MongoDB connection for file storage
 - Added a middleware to limit the Max File Upload Size to 250 mb
