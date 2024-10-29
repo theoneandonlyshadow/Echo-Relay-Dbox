@@ -24,7 +24,7 @@
 
 <center><h1><a href="https://github.com/Tyler731137">Jayprakash's</a> Contributions in this Project</h1></center>
 
-- Added MongoDB connection for file storage
+- Added MongoDB connection to store: file name, uploaded date, time remaining, download link and file size
 - Added a middleware to limit the Max File Upload Size to 250 mb
 - Modified the existing Schema to add a field called 'download_link'
 - Added Logs.js Controller for handling File Upload errors
