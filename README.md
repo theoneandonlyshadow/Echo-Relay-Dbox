@@ -1,9 +1,10 @@
-<center><h1>Echo Relay - DropBox</h1></center>
 <p align="center">
   <img src="./echorelay.png" title="Echo Relay - DropBox">
 </p><hr>
 <h2>This project is just a basic implementation. Visit <a href="https://theoneandonlyshadow/echo-relay">Echo Relay</a> for newer and better implementation</h2>
 <hr>
+
+<h1>Work Flow</h1>
 
 - user enters the website.
 - background process checks for storage residue in all DBs.
