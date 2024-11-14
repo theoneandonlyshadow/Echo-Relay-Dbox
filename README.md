@@ -6,16 +6,16 @@
 
 # Index
 
-- ![Work Flow](#work-flow)
-- ![Madhav's Contributions](#madhavs-contributions)
-- ![Jay's Contributions](#jayprakashs-contributions)
-- ![Files](#files)
-- ![Used Database](#used-database)
-- ![Languages & Frameworks](#languages-and-frameworks)
-- ![Dependencies](#dependencies)
-- ![Storage Database](#storage-database)
-- ![Important](#important)
-- ![Running the Program](#running-the-program)
+- [Work Flow](#work-flow)
+- [Madhav's Contributions](#madhavs-contributions)
+- [Jay's Contributions](#jayprakashs-contributions)
+- [Files](#files)
+- [Used Database](#used-database)
+- [Languages & Frameworks](#languages-and-frameworks)
+- [Dependencies](#dependencies)
+- [Storage Database](#storage-database)
+- [Important](#important)
+- [Running the Program](#running-the-program)
 
 # Work Flow
 
