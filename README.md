@@ -4,7 +4,20 @@
 <h2>This project is just a basic implementation. Visit <a href="https://theoneandonlyshadow/echo-relay">Echo Relay</a> for newer and better implementation</h2>
 <hr>
 
-<h1>Work Flow</h1>
+# Index
+
+![Work Flow](#work-flow)
+![Madhav's Contributions](#madhav's-contributions)
+![Jay's Contributions](jayprakash's-contributions)
+![Files](#files)
+![Used Database](#used-database)
+![Languages & Frameworks](#languages-and-frameworks)
+![Dependencies](#dependencies)
+![Storage Database](#storage-database)
+![Important](#important)
+![Running the Program](#running-the-program)
+
+# Work Flow
 
 - user enters the website.
 - background process checks for storage residue in all DBs.
@@ -18,7 +31,7 @@
 - the receiver enters the link or the code.
 - the receiver receives the file.
 
-<center><h1><a href="https://github.com/theoneandonlyshadow">Madhav's</a> Contributions in this Project</h1></center>
+# <a href="https://github.com/theoneandonlyshadow">Madhav's</a> Contributions
 
 - Created dropbox developers account and API key
 - Created dbox.js (main file) to push and pull files from the website
@@ -28,7 +41,7 @@
 - Created a basic error.html to show the user that the file had trouble uploading to the dropbox
 - Created temporary link in success.html to download the uploaded file
 
-<center><h1><a href="https://github.com/Tyler731137">Jayprakash's</a> Contributions in this Project</h1></center>
+# <a href="https://github.com/Tyler731137">Jayprakash's</a> Contributions
 
 - Added MongoDB connection to store: file name, uploaded date, time remaining, download link and file size
 - Added a middleware to limit the Max File Upload Size to 250 mb
@@ -41,7 +54,7 @@
 - Added maximum time limit of 1 week a file can stay in the DropBox before automatic deletion from DropBox and MongoDB record.
 
 
-<center><h1>Files</h1></center>
+# Files
 
 - index.html - static main page to input files
 - dbox.js - main file for dropbox transfer
@@ -49,44 +62,41 @@
 - views/success.ejs - if file upload is uploaded to dropbox, we get redirected to this page
 - views/error.ejs - opposite of success.html
 
-<center><h1>Used Database</h1></center>
+# Used Database
 
 - MongoDB - 512MB (storage limit)
 
-<center><h1>Languages & Frameworks</h1></center>
+# Languages & Frameworks
 
-- MERN
+- Node.js
+- HTML
 - EJS
 
-<center><h1>Dependencies</h1></center>
+# Dependencies
 
 - Express
 - Multer
 - Dropbox
 - Mongoose
 - Crypto
-- dotenv (optional)
+- dotenv
 
-<center><h1>Storage Database</h1></center>
+# Storage Database
 
 - Dropbox - 2GB
 
-<center><h1>API Endpoints</h1></center>
+# API Endpoints
 
 - '/' - This is the 'index.html' in action. 
 - '/upload' - This endpoint redirects 'error.ejs' or 'success.ejs' when there's error uploading the   file, the file size exceeds 250 mb or the file has successfully uploaded respectively.
 - '/download/:id - This endpoint redirects the user to a webpage where the stored file in the database is downloaded into the user's system.
-
-<center><h1>Installing Dependencies</h1></center>
-
-- npm i express multer dropbox mongoose crypto
-
-<center><h1>Important</h1></center>
+ 
+# Important
 
 - Replace process.env.MONGO_URI in <mongoose.connect(process.env.MONGO_URI)>  with your MongoDB connection string in the dbox.js file.
 - Replace process.env.DBOX in <const dbx = new Dropbox({accessToken: process.env.DBOX, fetch: fetch});>  with your Dropbox API Key.
 - Dropbox deprecated long-lived tokens and resorted to short-lived tokens. You may have to fetch a new API key from DropBox Developers frequently. ![Read More](https://www.dropboxforum.com/discussions/101000014/short-lived-access-tokens-only/773530)
 
-<center><h1>Running the program</h1></center>
+# Running the program
 
 - node dbox.js
