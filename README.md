@@ -81,10 +81,11 @@
 
 - npm i express multer dropbox mongoose crypto
 
-<center><h1>Note</h1></center>
+<center><h1>Important</h1></center>
 
 - Replace process.env.MONGO_URI in <mongoose.connect(process.env.MONGO_URI)>  with your MongoDB connection string in the dbox.js file.
 - Replace process.env.DBOX in <const dbx = new Dropbox({accessToken: process.env.DBOX, fetch: fetch});>  with your Dropbox API Key.
+- Dropbox deprecated long-lived tokens and resorted to short-lived tokens. You may have to fetch a new API key from DropBox Developers frequently. ![Read More](https://www.dropboxforum.com/discussions/101000014/short-lived-access-tokens-only/773530)
 
 <center><h1>Running the program</h1></center>
 
