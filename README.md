@@ -7,8 +7,8 @@
 # Index
 
 - ![Work Flow](#work-flow)
-- ![Madhav's Contributions](#madhav's-contributions)
-- ![Jay's Contributions](jayprakash's-contributions)
+- ![Madhav's Contributions](#madhavs-contributions)
+- ![Jay's Contributions](#jayprakashs-contributions)
 - ![Files](#files)
 - ![Used Database](#used-database)
 - ![Languages & Frameworks](#languages-and-frameworks)
